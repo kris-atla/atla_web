@@ -6,7 +6,10 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { SmoothScrollHandler } from "@/components/providers/SmoothScroll";
 import { metadata as siteMetadata } from "./metadata";
-import CookieBanner from "@/components/CookieBanner";
+// import CookieBanner from "@/components/CookieBanner"; // Removed in favor of wrapper
+import { Analytics } from "@vercel/analytics/react";
+import AnalyticsConsentWrapper from "@/components/AnalyticsConsentWrapper";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -80,7 +83,7 @@ export default function RootLayout({
         <SmoothScrollHandler>
           <main className="flex-grow">{children}</main>
         </SmoothScrollHandler>
-        <CookieBanner />
+        <AnalyticsConsentWrapper analytics={<Analytics />} />
       </body>
     </html>
   );
