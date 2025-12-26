@@ -96,9 +96,12 @@ const Navbar: React.FC = () => {
     <nav
       className={`
         fixed top-0 left-0 w-full z-[9999]
-        transition-all duration-500
+        transition-all
+        ${isMobileMenuOpen ? "duration-0" : "duration-300"}
         ${
-          isLightSection
+          isMobileMenuOpen
+            ? "bg-white shadow-none"
+            : isLightSection
             ? "bg-transparent backdrop-blur-0 shadow-none"
             : "bg-white/70 backdrop-blur-md shadow-sm"
         }
@@ -327,7 +330,6 @@ const Navbar: React.FC = () => {
                   className="mt-auto pb-10 text-gray-400 text-sm font-medium"
                 >
                   <p>© 2025 ATLA AB</p>
-                  <p>Stockholm, Sweden</p>
                 </motion.div>
               </div>
             </motion.div>
